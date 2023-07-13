@@ -14,23 +14,33 @@ Bonus Food: Watch out for bonus food that appears randomly on the screen. When e
 
 ## How to Play
 Use the arrow keys or on your keyboard to control the snake's movement—up, down, left, and right (wasd controll also supported).
+
 Aim to eat the food that appears on the screen. Each time you eat food, your score increases.
+
 Avoid colliding with the walls or the snake's own body. If you hit any of them, the game will end.
+
 Try to beat your highest score and challenge yourself to improve with each playthrough.
+
 Feel free to pause anytime you need a break.
+
 Have fun playing the Snake Game and enjoy the classic retro gaming experience!
 
 ## Installation
 Make sure you have Python installed on your system.
+
 Install the Pygame library by running "pip install pygame" in your command prompt or terminal.
+
 Download or clone this repository to your local machine.
+
 Run the snake_game.py file using Python. For this, change directory to the directory having 'snake_game.py' file (it will be in Retro_games folder if downloaded from git). Run the command "python3 snake_game.py" in the terminal.
+
 
 OR alternately,
 
 Play it on browser via this link 
 https://trinket.io/pygame/7cc51cbb38?outputOnly=true&showInstructions=true
 (spoiler alert: The experience might be a little laggy on the browser)
+
 
 Enjoy playing the game!
 
