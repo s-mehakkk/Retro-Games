@@ -41,9 +41,11 @@ f_high = open("pp_highscore.txt", "r+")
 highscore = f_high.read()
 highscore = int(highscore)
 
-def message(msg, font_style, color, x, y):
+# for displaying text with it's horizontally center at x and vertical center at y
+def message(msg, font_style, color, x, y): 
 	msg = font_style.render(msg, True, color)
-	dis.blit(msg, [x , y ])
+	msg_rect = msg.get_rect(center=(x/2, y))
+	dis.blit(msg, msg_rect)
 
 def your_sore(score):
 	global highscore
@@ -51,9 +53,11 @@ def your_sore(score):
 	val = font_score.render("Happy meter: "+ str(score) , True, yellow )
 	dis.blit(val, [2,2])
 	paus = font_score.render("Press p to pause", True, peach2)
-	dis.blit(paus, [(3*dis_width)/4, 2])
+	paus_rect = paus.get_rect(right = dis_width)
+	dis.blit(paus, paus_rect)  
 	hscore = font_score.render("Highscore: " + str(highscore), True, yellow)
-	dis.blit(hscore,[(3*dis_width)/4, 35])
+	hscore_rect = hscore.get_rect(left = paus_rect.left, top = paus_rect.bottom + 10)
+	dis.blit(hscore, hscore_rect)
 
 	#updating highscore
 	if score > highscore :
@@ -73,10 +77,10 @@ def our_snake(snake_block , snake_list):
 def game_pause(snake_length):
 	global highscore
 	dis.fill(black)
-	message("GAME PAUSED", font_paused, mauve, dis_width/8-30, dis_height/4)
-	message("Your score: "+ str(snake_length-1), font_style, mustard, dis_width/4, dis_height/2)
-	message("press p to play", font_score, peach2, dis_width/4+65, (3*dis_height)/4)
-	message("press q to quit", font_score, peach2, dis_width/4+65, (3*dis_height)/4+40)
+	message("GAME PAUSED", font_paused, mauve, dis_width, dis_height/3) 
+	message("Your score: "+ str(snake_length-1), font_style, mustard, dis_width, (2*dis_height)/3)
+	message("press p to play", font_score, peach2, dis_width, (3*dis_height)/4)
+	message("press q to quit", font_score, peach2, dis_width, (3*dis_height)/4+40)
 	pygame.display.update()
 
 	while True:
@@ -95,10 +99,10 @@ def game_pause(snake_length):
 
 def game_start():
 	dis.fill(black) #bg color
-	message("Hemlo, this is Snakey", font_intro1, mustard, dis_width/4 - 35, dis_height/4)
-	message("Since you're already here, ig you wouldn't mind to guide ", font_intro2, mustard, 20, dis_height/4 + 50)
-	message("me to some yumm treats hehe", font_intro2, mustard, dis_width/4, dis_height/4 + 80)
-	message("press y to play n to quit",font_score, mauve, dis_width/3- 25 , dis_height/2)
+	message("Hey, this is Snakey", font_intro1, mustard, dis_width, dis_height/4)
+	message("Since you're already here, ig you wouldn't mind guiding ", font_intro2, mustard, dis_width, dis_height/4 + 50)
+	message("me to some yumm treats :)", font_intro2, mustard, dis_width, dis_height/4 + 80)
+	message("press y to play n to quit",font_score, mauve, dis_width, dis_height/2)
 	pygame.display.update()
 
 	while True :
@@ -108,9 +112,9 @@ def game_start():
 					game_loop()
 				elif event.key == pygame.K_n:
 					dis.fill(black)
-					message("Snakey got sad and crawled ", font_intro1, peach, 45, dis_height/4)
-					message("back into his hole",font_intro1, peach, dis_width/4 - 16, dis_height/4 + 50)
-					message("(and bit you on his way)",font_score, peach2, dis_width/4 + 22, dis_height/2)
+					message("Snakey got sad and crawled ", font_intro1, peach, dis_width, dis_height/4)
+					message("back into his hole",font_intro1, peach, dis_width, dis_height/4 + 50)
+					message("(and bit you on his way)",font_score, peach2, dis_width, dis_height/2)
 					pygame.display.update()
 					pygame.time.delay(4500)
 
@@ -146,12 +150,12 @@ def game_loop():
 
 		while game_close == True:
 			dis.fill(black)
-			message("GAME OVER", font_paused, mauve, dis_width/8+30, dis_height/4)
-			message("Your score: "+ str(snake_length-1), font_style, mustard, dis_width/4 + 30, dis_height/2)
+			message("GAME OVER", font_paused, mauve, dis_width, dis_height/4)
+			message("Your score: "+ str(snake_length-1), font_style, mustard, dis_width, dis_height/2)
 			if highscore == snake_length-1 :
-				message("New Highscore!! ", font_style, mauve, dis_width/4, dis_height/2+50)
-			message("Press q to quit", font_score, peach2, dis_width/4 +75, (3*dis_height)/4)
-			message("Press c to play again", font_score, peach2, dis_width/4 + 50 , (3*dis_height)/4 + 40)
+				message("New Highscore!! ", font_style, mauve, dis_width, dis_height/2+50)
+			message("Press q to quit", font_score, peach2, dis_width, (3*dis_height)/4)
+			message("Press c to play again", font_score, peach2, dis_width , (3*dis_height)/4 + 40)
 			pygame.display.update()	
 
 			for event in pygame.event.get():
