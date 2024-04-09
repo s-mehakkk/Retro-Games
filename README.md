@@ -1,5 +1,10 @@
 # Snake Game
+
+<img width="700" alt="Screenshot 2024-04-09 at 16 53 58" src="https://github.com/s-mehakkk/Retro-Games/assets/75841992/a53b4d55-2808-4092-a6b3-cf3ad11714fe">
+
+
 Welcome to the Snake Game! Yes this is the classic snake game we played as kids in the tiny buttoned phones. This version is built using Pygame to make you all nostalgic. The aim remains to feed your pet snake as much food as possible without colliding with the walls or the snake itself.
+
 
 ## Features
 Score Tracking: The game keeps track of your current score and displays it on the screen. Aim for the highest score and challenge yourself to beat your previous records!
@@ -18,6 +23,10 @@ Bonus Food: Watch out for bonus food that appears randomly on the screen. When e
 - Avoid colliding with the walls or the snake's own body. If you hit any of them, the game will end.
 - Try to beat your highest score and challenge yourself to improve with each playthrough.
 - Feel free to pause anytime you need a break.
+
+<img width="800" alt="Screenshot 2024-04-09 at 16 56 38" src="https://github.com/s-mehakkk/Retro-Games/assets/75841992/a826bbe6-76b3-492a-9a98-03e53ac25f21">
+
+  
 Have fun playing the Snake Game and enjoy the classic retro gaming experience!
 
 ## Installation
